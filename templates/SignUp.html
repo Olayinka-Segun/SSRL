@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Page</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %} 
+        {% for message in messages %}
+            <p>{{ message}}</p>
+        {% endfor %}
+    {% endif %} 
+{% endwith %}   
+    <div class="Registerbox">
+        <h1>Create an Account</h1>
+        <form action="{{url_for('SignUp')}}" method="post">
+            <label>Name</label>
+            <input type="text" name="Name" id="Name" required>
+            <label>Email Address</label>
+            <input type="text" name="Email" id="Email" required>
+            <label>Username</label>
+            <input type="text" name="Username" id="Username" required>
+            <label>Phone number</label>
+            <input type="text" name="Phone_number" id="Phone_number" required>
+            <label>Password</label>
+            <input type="password" name="Password" id="Password" required>
+            <label>Section</label>
+            <select name="Section" id="Section" required>
+                <option value="Software">Software</option>
+                <option value="Hardware">Hardware</option>
+            </select>
+            <input type="Submit" value="Sign Up">
+
+            <a href="{{url_for('login')}}">Already have an account? Sign in</a>
+
+        </form>   
+    </div>    
+</body>
+</html>
